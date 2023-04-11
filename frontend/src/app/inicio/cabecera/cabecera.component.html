@@ -1,0 +1,9 @@
+<nav>
+    <a [routerLink]="['/']"><img src="../../../assets/img/logos/logo2.png" alt="AsturTravel" width="50%"></a>
+    <ul>
+        <li><a [routerLink]="['/explora']" id="explora">Explora</a></li>
+        <li><a href="#" (click)="openLoginPopup()">Login</a></li>
+        <app-modal-login *ngIf="showLoginPopup" (closePopup)="closeLoginPopup()"></app-modal-login>
+    </ul>
+</nav>
+<h1 class="title">AsturTravel</h1>

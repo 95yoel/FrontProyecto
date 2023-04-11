@@ -1,0 +1,23 @@
+
+iframe{
+    margin-top: 10px;
+    padding: 10px;
+    margin: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    transition: 0.5s;
+}
+iframe:hover{
+    transition: 1s;
+    box-shadow: 0 0 13px rgba(0,0,0,0.5);
+    transform: scale(1.001);
+}
+hr{
+    margin-bottom: 4%;
+    width: 88%;
+    border: 2px solid #3a9962;
+    border-radius: 2px;
+}
