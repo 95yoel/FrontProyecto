@@ -1,5 +1,19 @@
 <main>
-      <div class="linea1">
+
+    <ul>
+        <table *ngFor="let dest of destinos">
+            <tr>
+                <td>{{ dest.nombre }}</td>
+                <td>{{ dest.descripcion }}</td>
+            </tr>
+            <tr>
+                <td><img src="{{ dest.imagen}}" alt=""></td>
+            </tr>
+        </table>
+
+      </ul>
+      
+      <!-- <div class="linea1">
         <div class="articulo">
             <img src="https://source.unsplash.com/random/200x199" alt="" class="image">
             <div class="texto">
@@ -40,9 +54,9 @@
                 <a href="">Ver más</a>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--Cambio de linea-->
-    <div class="linea1">
+    <!-- <div class="linea1">
         <div class="articulo">
             <img src="https://source.unsplash.com/random/200x199" alt="" class="image">
             <div class="texto">
@@ -83,9 +97,9 @@
                 <a href="">Ver más</a>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--Cambio de linea-->
-    <div class="linea1">
+    <!-- <div class="linea1">
         <div class="articulo">
             <img src="https://source.unsplash.com/random/200x199" alt="" class="image">
             <div class="texto">
@@ -126,7 +140,7 @@
                 <a href="">Ver más</a>
             </div>
         </div>
-    </div>
+    </div> -->
 </main>
 
 <footer>

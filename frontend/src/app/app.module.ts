@@ -14,6 +14,7 @@ import { MenuComponent } from './explora/contenido/menu/menu.component';
 import { OficinaComponent } from './oficina/oficina.component';
 import { ModalLoginComponent } from './modal-login/modal-login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

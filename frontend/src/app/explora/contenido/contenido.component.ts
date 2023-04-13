@@ -1,5 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import Swiper from 'swiper';
+import { Component, OnInit} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+
 
 
 
@@ -10,11 +12,18 @@ import Swiper from 'swiper';
 })
 export class ContenidoComponent implements OnInit {
 
- 
+  destinos:any;
+  env = environment;
 
-  constructor() { }
+
+  constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
+
+    this.http.get(`${this.env.BACKEND_VIAJES_URL}/destino/GetJson`).subscribe((data:any)=>{
+      this.destinos = data;
+    })
+
   }
 
   
