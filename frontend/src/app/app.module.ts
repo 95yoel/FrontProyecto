@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -15,6 +16,9 @@ import { OficinaComponent } from './oficina/oficina.component';
 import { ModalLoginComponent } from './modal-login/modal-login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalRegisterComponent } from './modal-register/modal-register.component';
+import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './explora/contenido/footer/footer.component';
 
 
 @NgModule({
@@ -29,13 +33,16 @@ import { HttpClientModule } from '@angular/common/http';
     CarruselComponent,
     MenuComponent,
     OficinaComponent,
-    ModalLoginComponent
+    ModalLoginComponent,
+    ModalRegisterComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,15 +13,16 @@ export class ModalLoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  ngAfterViewInit() {
+    
+  }
 
   onSubmit() {
     // Aquí se puede agregar la lógica para procesar el formulario de inicio de sesión
     // Una vez procesado, se puede cerrar el pop-up emitiendo el evento closePopup
+    console.log("onSubmit");
     this.closePopup.emit();
   }
-
-  
-
   
 
 }

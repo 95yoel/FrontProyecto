@@ -7,6 +7,7 @@
     </section>
     <section id="contenedor-menu-principal">
         <nav>
+            
             <table>
                 <tr>
                     <td><a [routerLink]="['/oficina']">
@@ -48,9 +49,18 @@
                         Area de clientes
                     </a></td>
                     <app-modal-login *ngIf="showLoginPopup" (closePopup)="closeLoginPopup()"></app-modal-login>
+                    
+                    <td>
+                        <a (click)="openRegisterPopup()">
+                            
+                            <img src="assets/icons/add_user.png" alt="ico-user" style="width: 23px;">
+                            
+                            Registrate</a>
+                    </td>
+                    <app-modal-register *ngIf="showRegisterPopup" (closeRegisterPopup)="closeRegisterPopup()"></app-modal-register>
                 </tr>
                 <tr>
-                    <td colspan="2"><a href="">
+                    <td colspan="2"><a href="mailto:vill@gmail.com">
                         <svg width="23px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 485 485" style="enable-background:new 0 0 485 485;" xml:space="preserve">
                         <path d="M413.974,71.026C368.171,25.225,307.274,0,242.5,0S116.829,25.225,71.026,71.026C25.225,116.829,0,177.726,0,242.5
@@ -68,7 +78,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <a href="#">
+                        <a href="tel:667570588">
                             <svg width = "23px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 59.942 59.942" style="enable-background:new 0 0 59.942 59.942;" xml:space="preserve">
                             <g>

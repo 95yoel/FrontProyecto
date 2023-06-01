@@ -1,0 +1,47 @@
+<div class="popup-overlay">
+    <div class="popup">
+      <button class="close-btn" (click)="closeRegisterPopup.emit()">X</button>
+      <h2>Registro</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div>
+          <br>
+          <label for="nombre">Nombre:</label><br><br>
+          <input type="text" id="nombre" #nombreInput name="nombre" [(ngModel)] ="registrationData.Nombre">
+          <span id="validationNombre" style="color: crimson;text-align: left;" *ngIf="nombreValido==false">El nombre tiene que tener más de 3 carácteres</span>
+        </div>
+        <div>
+            <br>
+            <label for="apellidos">Apellidos:</label><br><br>
+            <input type="text" id="apellidos" name="apellidos" [(ngModel)]="registrationData.Apellidos">
+            <span id="validationApellidos" style="color: crimson;text-align: left;" *ngIf="apellidosValido==false">Los apellidos tienen que tener más de 3 carácteres</span>
+        </div>
+        <div>
+            <br>
+            <label for="email">Email:</label><br><br>
+            <input type="text" id="email" name="email" [(ngModel)]="registrationData.Email">
+            <span id="validationEmail" style="color: crimson;text-align: left;" *ngIf="emailValido==false">El Email tiene que ser un email válido</span>
+        </div>
+        <div>
+          <br>
+          <label for="contrasenas">Contraseña:</label><br><br>
+          <div>
+            <input [type]="showPassword ? 'text' : 'password'" #contrasena1 id="contrasenas" name="contrasenas" style="width: 100%;" [(ngModel)]="registrationData.Contrasenas">
+            <span id="validationContrasena1" style="color: crimson;text-align: left;" *ngIf="contrasenaValido==false">Ambas contraseñas tienen que ser iguales y tener al menos 1 Mayúscula y un número</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+          <br>
+          <label for="contrasenas">Repite la contraseña:</label><br><br>
+          <input [type]="showPassword ? 'text' : 'password'" #contrasena2 id="contrasenas2" name="contrasenas2">
+          <span id="validationContrasena2" style="color: crimson;text-align: left;" *ngIf="contrasenaValido==false">Ambas contraseñas tienen que ser iguales y tener al menos 1 Mayúscula y un número</span>
+        </div>
+        <button type="button" (click)="togglePasswordVisibility()" [ngClass]="{'show': showPassword}">
+          {{ showPassword ? 'Ocultar' : 'Mostrar' }}
+        </button>
+        <br>
+        <button type="submit">Registro</button>
+        
+      </form>
+    </div>
+  </div>

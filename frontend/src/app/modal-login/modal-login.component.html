@@ -1,7 +1,7 @@
-<div class="popup-overlay">
+<div class="popup-overlay" id="ocultar">
   <div class="popup">
     <button class="close-btn" (click)="closePopup.emit()">X</button>
-    <h2>Login</h2>
+    <h2>Inicio sesion</h2>
     <form (ngSubmit)="onSubmit()">
       <div>
         <br>
@@ -15,8 +15,7 @@
       </div>
       <br>
       <button type="submit">Login</button>
-
-      <p>No eres miembro?.<a href="/">Registrate</a></p>
     </form>
   </div>
 </div>
+

@@ -5,3 +5,14 @@
     scrollbar-width: none;
     font-family: Arial,Tahoma,Geneva,sans-serif;
 }
+
+body::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #3a9962; /* Color del pulgar de la barra de desplazamiento */
+    border-radius: 4px; /* Ajusta el radio de las esquinas del pulgar */
+}
+body::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color de la pista de la barra de desplazamiento */
+}
