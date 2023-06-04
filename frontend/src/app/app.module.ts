@@ -19,6 +19,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalRegisterComponent } from './modal-register/modal-register.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './explora/contenido/footer/footer.component';
+import { CrucerosComponent } from './explora/cruceros/cruceros.component';
+import { DiversionComponent } from './explora/diversion/diversion.component';
+import { EspanaComponent } from './explora/espana/espana.component';
+import { TemporadaComponent } from './explora/temporada/temporada.component';
+import { EuropaComponent } from './explora/europa/europa.component';
+import { ContenidoDestinoComponent } from './explora/contenido-destino/contenido-destino.component';
+
+
 
 
 @NgModule({
@@ -36,13 +44,20 @@ import { FooterComponent } from './explora/contenido/footer/footer.component';
     ModalLoginComponent,
     ModalRegisterComponent,
     FooterComponent,
+    CrucerosComponent,
+    DiversionComponent,
+    EspanaComponent,
+    TemporadaComponent,
+    EuropaComponent,
+    ContenidoDestinoComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

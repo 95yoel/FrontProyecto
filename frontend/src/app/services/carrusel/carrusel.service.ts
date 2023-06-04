@@ -7,8 +7,7 @@ import Swiper from 'swiper';
 export class CarruselService {
 
   swiper: any;
-  @ViewChild('nextBtn') siguiente!: ElementRef;
-  @ViewChild('prevBtn') anterior!: ElementRef;
+  
 
   constructor() { }
 
@@ -26,10 +25,7 @@ export class CarruselService {
       keyboard: {
         enabled: true,
       },
-      navigation: {
-        nextEl: this.siguiente?.nativeElement,
-        prevEl: this.anterior?.nativeElement,
-      },
+      
       breakpoints: {
         100: {
           slidesPerView: 1,
@@ -52,16 +48,13 @@ export class CarruselService {
 
     setInterval(() => {
       this.swiper.slideNext();
-    }, 5000);
-
-    this.siguiente?.nativeElement.addEventListener('click', (event: { preventDefault: () => void; }) => {
-      event.preventDefault();
-      this.swiper.slideNext();
-    });
-
-    this.anterior?.nativeElement.addEventListener('click', (event: { preventDefault: () => void; }) => {
-      event.preventDefault();
-      this.swiper.slidePrev();
-    });
+    }, 3000);
+    
   }
+
+  siguiente() {
+    this.swiper.slideNext();
+  }
+  
+  
 }

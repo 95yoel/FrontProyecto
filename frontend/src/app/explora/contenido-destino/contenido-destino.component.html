@@ -1,11 +1,16 @@
+<app-layout-cabecera></app-layout-cabecera>
+<app-menu></app-menu>
+<hr>
 <main>
     <div id="contenidoSI" [hidden]="!loaded">
+        <h1 style="text-align: center;">{{tituloCategoria}}</h1>
         <div class="grid-container">
-          <div class="grid-item" *ngFor="let dest of destinos">
+          <div class="grid-item" *ngFor="let dest of contenido">
             <img src="{{ dest.imagen }}" class="articulo-imagen">
             <h4 class="articulo-titulo">{{ dest.nombre }}</h4>
             <p class="articulo-descripcion">{{ dest.descripcion }}</p>
-            <a [routerLink]="['/contenido-destino', dest.nombre, dest.id]" class="articulo-enlace"><i class="fa-solid fa-eye" style="color:#3a9962;"></i>&nbsp;<i>Ver más</i></a>
+            <p style="text-align: end;">{{dest.precio}} €</p>
+            <a [routerLink]="['/contenido-destino', dest.id]" class="articulo-enlace"><i class="fa-solid fa-eye" style="color:#3a9962;"></i>&nbsp;<i>Ver más</i></a>
           </div>
          </div>
     </div>
@@ -14,3 +19,7 @@
       <p style="text-align: center;">Lo sentimos ,nuestros viajes no estan disponibles en este momento</p>
     </div>
 </main>
+<br>
+<hr>
+<br>
+<app-footer></app-footer>

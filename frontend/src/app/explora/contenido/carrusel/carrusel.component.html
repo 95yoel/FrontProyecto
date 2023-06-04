@@ -1,19 +1,17 @@
+<div *ngIf="loaded==false" class="loading-icon">
+  <i class="fas fa-spinner fa-spin" style="font-size: 150px;color: #3a9962;margin-left: 40%;"></i>
+</div>
 
-<div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="https://source.unsplash.com/random/801x600" alt="" class="image"></div>
-      <div class="swiper-slide"><img src="https://source.unsplash.com/random/802x600" alt="" class="image"></div>
-      <div class="swiper-slide"><img src="https://source.unsplash.com/random/803x600" alt="" class="image"></div>
-      <div class="swiper-slide"><img src="https://source.unsplash.com/random/800x601" alt="" class="image"></div>
-      <div class="swiper-slide"><img src="https://source.unsplash.com/random/800x602" alt="" class="image"></div>
-      <div class="swiper-slide"><img src="https://source.unsplash.com/random/800x603" alt="" class="image"></div>
-      <div class="swiper-slide"><img src="https://source.unsplash.com/random/801x601" alt="" class="image"></div>
-      <div class="swiper-slide"><img src="https://source.unsplash.com/random/802x602" alt="" class="image"></div>
-      <div class="swiper-slide"><img src="https://source.unsplash.com/random/803x603" alt="" class="image"></div>
+<div class="swiper mySwiper" [hidden]="!loaded">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let dest of destacados; let i = index">
+      <img [src]="destacados[i].imagen" alt="" class="image">
     </div>
-    <div #nextBtn class="swiper-button-next" id="next"></div>
-    <div #prevBtn class="swiper-button-prev" id="back"></div>
-    <div class="swiper-pagination"></div>
   </div>
+  <div #nextBtn class="swiper-button-next" id="next"></div>
+  <div #prevBtn class="swiper-button-prev" id="back"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
   
 

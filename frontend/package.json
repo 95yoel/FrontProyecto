@@ -21,6 +21,7 @@
     "@angular/router": "^14.2.0",
     "@fortawesome/fontawesome-free": "^6.4.0",
     "gsap": "^3.11.5",
+    "ngx-scroll-event": "^2.0.2",
     "rxjs": "~7.5.0",
     "swiper": "^9.2.0",
     "three": "^0.151.3",
