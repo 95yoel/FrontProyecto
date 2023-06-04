@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EspanaComponent } from './espana.component';
+import { ContenidoTipoComponent } from './contenido-tipo.component';
 
-describe('EspanaComponent', () => {
-  let component: EspanaComponent;
-  let fixture: ComponentFixture<EspanaComponent>;
+describe('ContenidoTipoComponent', () => {
+  let component: ContenidoTipoComponent;
+  let fixture: ComponentFixture<ContenidoTipoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EspanaComponent ]
+      declarations: [ ContenidoTipoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EspanaComponent);
+    fixture = TestBed.createComponent(ContenidoTipoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

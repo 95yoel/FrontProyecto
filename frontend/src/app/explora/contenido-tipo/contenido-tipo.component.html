@@ -1,0 +1,25 @@
+<app-layout-cabecera></app-layout-cabecera>
+<app-menu></app-menu>
+<hr>
+<main>
+  <h1 style="text-align: center;">{{tituloCategoria}}</h1>
+    <div id="contenidoSI" [hidden]="!loaded">
+        <div class="grid-container">
+            <div class="grid-item" *ngFor="let dest of contenido">
+              <img src="{{ dest.imagen }}" class="articulo-imagen">
+              <h4 class="articulo-titulo">{{ dest.nombre }}</h4>
+              <p class="articulo-descripcion">{{ dest.descripcion }}</p>
+              <p style="text-align: end;">{{dest.precio}} €</p>
+              <a [routerLink]="['/contenido-viaje', dest.id]" class="articulo-enlace"><i class="fa-solid fa-eye" style="color:#3a9962;"></i>&nbsp;<i>Reservar</i></a>
+            </div>
+           </div>
+    </div>
+
+  <div id="contenidoNo" *ngIf="loaded==false">
+    <i class="fas fa-spinner fa-spin" style="font-size: 150px;color: #3a9962;margin-left: 40%;"></i>
+  </div>
+</main>
+<br>
+<hr>
+<br>
+<app-footer></app-footer>

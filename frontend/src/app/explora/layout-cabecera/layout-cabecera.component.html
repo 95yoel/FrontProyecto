@@ -1,9 +1,10 @@
 <header id="swup" class="transition-fade">
     <section id="contenedor-logo">
-        <a [routerLink]="['/']" routerLinkActive="router-link-active" ><img src="../../../assets/img/logos/logo2.png" width="10%"  alt="L O G O"></a>
+        <a [routerLink]="['/explora']" routerLinkActive="router-link-active" ><img src="../../../assets/img/logos/logo2.png" width="10%"  alt="L O G O"></a>
     </section>
     <section>
         <h3><i>Donde los sueños se cumplen</i></h3>
+        <h3>{{loggedIn}}</h3>
     </section>
     <section id="contenedor-menu-principal">
         <nav>
@@ -103,5 +104,7 @@
                 </tr>
             </table>
         </nav>
-    </section>
+    </section>    
 </header>
+<span [hidden]="!EstaConectado" (click)="desconectar()" style="margin-left: 40px;"><i class="fa-solid fa-circle" style="color:rgb(27, 220, 20);"></i> &nbsp; Conectado - {{usuario}} &nbsp;<a ><i class="fa-solid fa-square-xmark" style="color: crimson;"></i> Desconectarse</a></span>
+<span [hidden]="EstaConectado"  style="margin-left: 40px;"><i class="fa-solid fa-circle" style="color:crimson;"></i> &nbsp; No conectado</span>

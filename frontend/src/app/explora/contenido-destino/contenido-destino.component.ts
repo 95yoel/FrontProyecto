@@ -29,6 +29,18 @@ export class ContenidoDestinoComponent implements OnInit {
       id: this.rutaActiva.snapshot.params['parametro'],
       titulo : this.rutaActiva.snapshot.params['titulo']
     }
+
+    this.rutaActiva.params.subscribe((params: Params) => {
+      this.params = {
+        id: params['parametro'],
+        titulo : params['titulo']
+      }
+    });
+
+
+
+
+
     this.tituloCategoria = this.params.titulo.toString();
     this.textoMostrar = this.params.id.toString();
     console.log(this.params.id);

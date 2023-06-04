@@ -1,5 +1,7 @@
-import { Component,OnInit} from '@angular/core';
+import { Component,OnInit,Input} from '@angular/core';
 import { gsap } from 'gsap';
+import { Injectable, EventEmitter } from '@angular/core';
+
 
 
 @Component({
@@ -9,13 +11,40 @@ import { gsap } from 'gsap';
 })
 export class LayoutCabeceraComponent implements OnInit {
 
-  showLoginPopup: boolean = false;
-  showRegisterPopup: boolean = false; // Agrega esta línea para declarar la variable showRegisterPopup
 
+  @Input() loggedIn: boolean | undefined;
+
+  showLoginPopup: boolean = false;
+  showRegisterPopup: boolean = false;
+  usuario:any;
+  EstaConectado:boolean=false;
+  
   constructor() { }
 
   ngOnInit(): void {
+
+    
+
+    const userDataString = sessionStorage.getItem('usuario');
+    if (userDataString) {
+      this.usuario = JSON.parse(userDataString);
+      // Hacer uso de los datos del usuario
+      this.EstaConectado=true;
+      console.log(this.usuario); 
+    }else{
+      this.EstaConectado=false;
+    }
+
   }
+
+  desconectar(){
+    sessionStorage.removeItem('usuario');
+    this.EstaConectado = false;
+    console.log("desconectado");
+  }
+  
+
+
 
   openLoginPopup() {
     this.showLoginPopup = true;

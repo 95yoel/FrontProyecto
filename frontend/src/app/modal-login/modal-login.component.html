@@ -6,13 +6,17 @@
       <div>
         <br>
         <label for="username">Usuario:</label><br><br>
-        <input type="text" id="username" name="username">
+        <input type="text" id="username" name="username" [(ngModel)]="loginData.Email">
       </div>
       <div>
         <br>
         <label for="password">Contraseña:</label><br><br>
-        <input type="password" id="password" name="password" >
+        <input [type]="showPassword ? 'text' : 'password'" id="password" name="password" [(ngModel)]="loginData.Contrasenas">
       </div>
+      <br>
+      <button type="button" (click)="togglePasswordVisibility()" [ngClass]="{'show': showPassword}">
+        {{ showPassword ? 'Ocultar' : 'Mostrar' }}
+      </button>
       <br>
       <button type="submit">Login</button>
     </form>
