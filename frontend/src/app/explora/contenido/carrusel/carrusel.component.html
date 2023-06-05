@@ -5,7 +5,7 @@
 <div class="swiper mySwiper" [hidden]="!loaded">
   <div class="swiper-wrapper">
     <div class="swiper-slide" *ngFor="let dest of destacados; let i = index">
-      <img [src]="destacados[i].imagen" alt="" class="image">
+      <img [routerLink]="['/contenido-viaje', dest.id]" [src]="destacados[i].imagen" alt="" class="image" style="cursor: pointer;">
     </div>
   </div>
   <div #nextBtn class="swiper-button-next" id="next"></div>
