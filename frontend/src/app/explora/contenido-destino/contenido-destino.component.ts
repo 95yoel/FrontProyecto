@@ -20,6 +20,7 @@ export class ContenidoDestinoComponent implements OnInit {
   //TEXTO MOSTRAR SE PUEDE IMPRIMIR EN LA VISTA SI FUERA NECESARIO
   textoMostrar:string ="";
   tituloCategoria:string ="";
+  estaVacio:boolean = false;
 
   constructor(private rutaActiva: ActivatedRoute,private http:HttpClient) { }
 
@@ -54,7 +55,7 @@ export class ContenidoDestinoComponent implements OnInit {
       });
       
       console.log(this.contenido);
-
+      this.estaVacio = this.contenido.length == 0 ? true : false;
       this.loaded = true;
     });
 
@@ -62,6 +63,9 @@ export class ContenidoDestinoComponent implements OnInit {
 
 
 
+  }
+  atras(){
+    window.history.back();
   }
 
 }

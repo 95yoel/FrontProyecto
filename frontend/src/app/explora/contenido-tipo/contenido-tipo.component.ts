@@ -19,6 +19,7 @@ export class ContenidoTipoComponent implements OnInit {
   textoMostrar:string ="";
   tituloCategoria:string ="";
   idCategoria:any;
+  estaVacio:boolean = false;
 
   constructor(private rutaActiva: ActivatedRoute,private http:HttpClient) { }
 
@@ -48,10 +49,14 @@ export class ContenidoTipoComponent implements OnInit {
           return viaje;
   
         });
-        
+        //aqui es un buen sitio para evaluar eso o mejor fuera ?
         console.log(this.contenido);
   
         this.loaded = true;
+
+        this.estaVacio = this.contenido.length == 0 ? true : false;
+
+        
       });
 
 
@@ -60,7 +65,10 @@ export class ContenidoTipoComponent implements OnInit {
     });
 
 
-}
+  }
+  atras(){
+    window.history.back();
+  }
 
 
 }

@@ -2,7 +2,7 @@
 <app-menu></app-menu>
 <hr>
 <main>
-  <h1 style="text-align: center;">{{tituloCategoria}}</h1>
+  <h1 style="text-align: center;font-weight: 400;"><i>{{tituloCategoria}}</i></h1>
     <div id="contenidoSI" [hidden]="!loaded">
         <div class="grid-container">
             <div class="grid-item" *ngFor="let dest of contenido">
@@ -17,6 +17,14 @@
 
   <div id="contenidoNo" *ngIf="loaded==false">
     <i class="fas fa-spinner fa-spin" style="font-size: 150px;color: #3a9962;margin-left: 40%;"></i>
+  </div>
+</main>
+<main [hidden]="!estaVacio">
+  <div style="align-items: center;">
+    <img src="../../../assets/img/logos/logo2.png" width="8%"  alt="L O G O" style="margin-left: 45%;">
+    <h3 style="text-align: center;">Lo sentimos.</h3>
+    <p style="text-align: center;">Aún no tenemos ningún viaje en esta categoría</p>
+    <a style="margin-left: 46%;cursor: pointer;" (click)="atras()"><i>Volver atrás</i> &nbsp;<i class="fa-solid fa-arrow-left-long" style="color: #3a9962;"></i></a>
   </div>
 </main>
 <br>
