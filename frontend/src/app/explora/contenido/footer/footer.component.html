@@ -7,11 +7,12 @@
         </div>
         <div class="footer-links">
           <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Servicios</a></li>
-            <li><a href="#">Productos</a></li>
-            <li><a href="#">Acerca de</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a [routerLink]="['/contenido-tipo','Cruceros' ,9]" id="lado_izquierdo">CRUCEROS</a></li>
+            <li><a [routerLink]="['/contenido-tipo','Diversion' , 10]" id="centro">DIVERSIÓN</a></li>
+            <li><a [routerLink]="['/contenido-tipo', 'España', 7]" id="centro">ESPAÑA</a></li>
+            <li><a [routerLink]="['/contenido-tipo', 'Temporada' ,8]" id="centro">DE TEMPORADA</a></li>
+            <li><a [routerLink]="['/contenido-tipo', 'Europa' , 11]" id="lado_derecho">EUROPA</a></li>
+            <li><a [routerLink]="['/oficina']">Contacto</a></li>
           </ul>
         </div>
         <div class="footer-social">

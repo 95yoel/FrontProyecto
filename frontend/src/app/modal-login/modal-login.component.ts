@@ -30,27 +30,54 @@ export class ModalLoginComponent implements OnInit {
     
   }
 
+  // document.location.href = 'https://www.google.es';
   onSubmit() {
-    this.http.post<boolean>('https://localhost:7227/Usuarios/Login', this.loginData, this.httpOptions.httpOptions)
-  .subscribe(response => {
-    if (response) {
-      // Inicio de sesión exitoso
-      // Almacena los datos del usuario en el session storage
-      
-      sessionStorage.setItem('usuario', JSON.stringify(this.loginData.Email));
-      document.location.reload();
-    } else {
-      alert("Usuario o contraseña incorrectos");
-      // Inicio de sesión fallido
-      // Manejo de errores
-    }
-  }, error => {
-    // Manejo de errores
-  });
-
+    this.http.post<any>('https://localhost:7227/Usuarios/Login', this.loginData, this.httpOptions.httpOptions)
+      .subscribe(response => {
+        if (response.logeado) {
+          // Inicio de sesión exitoso
+          // Almacena los datos del usuario en el session storage
+          sessionStorage.setItem('usuario', JSON.stringify(this.loginData.Email));
+          if (response.rol === 1) {
+            // Redireccionar a la página de administrador
+            window.location.href = 'https://localhost:7227/';
+          }else{
+            document.location.reload();
+          }
+        } else {
+          alert("Usuario o contraseña incorrectos");
+          // Inicio de sesión fallido
+          // Manejo de errores
+        }
+      }, error => {
+        // Manejo de errores
+      });
+  
     console.log("onSubmit");
     this.closePopup.emit();
   }
+  
+  // onSubmit() {
+  //   this.http.post<boolean>('https://localhost:7227/Usuarios/Login', this.loginData, this.httpOptions.httpOptions)
+  // .subscribe(response => {
+  //   if (response) {
+  //     // Inicio de sesión exitoso
+  //     // Almacena los datos del usuario en el session storage
+      
+  //     sessionStorage.setItem('usuario', JSON.stringify(this.loginData.Email));
+  //     document.location.reload();
+  //   } else {
+  //     alert("Usuario o contraseña incorrectos");
+  //     // Inicio de sesión fallido
+  //     // Manejo de errores
+  //   }
+  // }, error => {
+  //   // Manejo de errores
+  // });
+
+  //   console.log("onSubmit");
+  //   this.closePopup.emit();
+  // }
 
 
   togglePasswordVisibility() {
