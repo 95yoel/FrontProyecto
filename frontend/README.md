@@ -4,7 +4,7 @@ Proyecto hecho con Angular CLI version 14.2.3.
 ## Requisitos 
 - [Node.js](https://nodejs.org/en) 
 - Angular CLI
-  - npm install -g @angular/cli
+  - `npm install -g @angular/cli`
   
 # Servidor 
 
