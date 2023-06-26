@@ -17,7 +17,6 @@ export class ContenidoDestinoComponent implements OnInit {
   env = environment;
 
   params :{ id: number; titulo:string } | undefined;
-  //TEXTO MOSTRAR SE PUEDE IMPRIMIR EN LA VISTA SI FUERA NECESARIO
   textoMostrar:string ="";
   tituloCategoria:string ="";
   estaVacio:boolean = false;
@@ -38,18 +37,14 @@ export class ContenidoDestinoComponent implements OnInit {
       }
     });
 
-
-
-
-
     this.tituloCategoria = this.params.titulo.toString();
     this.textoMostrar = this.params.id.toString();
     console.log(this.params.id);
 
     this.http.get(`${this.env.BACKEND_VIAJES_URL}/Viajes/ObtenerViajesPorDestino/${this.params.id}`).subscribe((data: any) => {
       this.contenido = data.map((viaje: any) => {
-        viaje.precio = Math.round(viaje.precio * 100) / 100; //redondeo a 2 decimales
-        viaje.precio = viaje.precio.toString().replace('.', ','); //cambio el punto por la coma
+        viaje.precio = Math.round(viaje.precio * 100) / 100;
+        viaje.precio = viaje.precio.toString().replace('.', ',');
         return viaje;
 
       });
@@ -58,9 +53,6 @@ export class ContenidoDestinoComponent implements OnInit {
       this.estaVacio = this.contenido.length == 0 ? true : false;
       this.loaded = true;
     });
-
-
-
 
 
   }

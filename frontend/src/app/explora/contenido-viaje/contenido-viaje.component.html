@@ -13,14 +13,29 @@
               <div class="card-body">
                 <h4 class="card-title">{{ dest.nombre }}</h4>
                 <p class="card-description">{{ dest.descripcion }}</p>
-                <p class="card-price" style="text-align: end;">{{ dest.precio }} €</p>
+                <p class="card-price" style="text-align: end;">{{ precioActualizado }} €</p>
                 <h4>Fecha de salida</h4>
                 <p> {{dest.fechaSalida}}</p>
                 <h4>Fecha de llegada</h4>
                 <p> {{dest.fechaLlegada}}</p>
+                
+                  <select style="border-radius: 8px;height:35px;text-align: center;margin-bottom: 20px;" [(ngModel)]="numViajeros" (change)="actualizarPrecio()">
+                    <option selected disabled value="0">Numero de viajeros</option>
+                    <option value="1" ><i>1 viajero</i></option>
+                    <option value="2" style="background-color: rgb(221, 221, 221);"><i>2 viajeros</i></option>
+                    <option value="3"><i>3 viajeros</i></option>
+                    <option value="4" style="background-color: rgb(221, 221, 221);"><i>4 viajeros</i></option>
+                    <option value="5"><i>5 viajeros</i></option>
+                    <option value="6" style="background-color: rgb(221, 221, 221);"><i>6 viajeros</i></option>
+                    <option value="7"><i>7 viajeros</i></option>
+                    <option value="8" style="background-color: rgb(221, 221, 221);"><i>8 viajeros</i></option>
+                    <option value="9"><i>9 viajeros</i></option>
+                    <option value="10" disabled style="background-color: rgb(221, 221, 221);">Para más usuarios llamar</option>
+                  </select>
+
                 <a [routerLink]="['/contenido-viaje', dest.id]" class="card-link">
                   <i class="fa-solid fa-credit-card" style="color: #3a9962;"></i>
-                  <span class="card-link-text"><i>Pagar</i></span>
+                  <span class="card-link-text" (click)="reservarViaje()"><i>Pagar</i></span>
                 </a>
               </div>
             </div>

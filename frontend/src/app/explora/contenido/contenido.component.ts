@@ -22,21 +22,13 @@ export class ContenidoComponent implements OnInit {
 
   constructor(private http:HttpClient) { }
 
-
-  //DE ESTA FORMA SE HACE LA PETICION AL BACKEND
-  // ngOnInit(): void {
-
-  //   this.http.get(`${this.env.BACKEND_VIAJES_URL}/Viajes/GetJson`).subscribe((data:any)=>{
-  //     this.destinos = data;
-  //   })
-  // }
     ngOnInit(): void {
       
       this.http.get(`${this.env.BACKEND_VIAJES_URL}/destino/GetJson`).subscribe((data: any) => {
         this.destinos = data.map((viaje: any) => {
 
-          viaje.precio = Math.round(viaje.precio * 100) / 100; //redondeo a 2 decimales
-          viaje.precio = viaje.precio.toString().replace('.', ','); //cambio el punto por la coma
+          viaje.precio = Math.round(viaje.precio * 100) / 100;
+          viaje.precio = viaje.precio.toString().replace('.', ','); 
           return viaje;
 
         });
@@ -51,9 +43,4 @@ export class ContenidoComponent implements OnInit {
       
     }
 
-
-    
-
-    
-  
 }

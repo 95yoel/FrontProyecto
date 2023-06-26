@@ -38,6 +38,7 @@ export class ModalLoginComponent implements OnInit {
           // Inicio de sesión exitoso
           // Almacena los datos del usuario en el session storage
           sessionStorage.setItem('usuario', JSON.stringify(this.loginData.Email));
+          sessionStorage.setItem('id', response.id);
           if (response.rol === 1) {
             // Redireccionar a la página de administrador
             window.location.href = 'https://localhost:7227/';

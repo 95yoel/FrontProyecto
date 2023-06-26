@@ -44,12 +44,12 @@ export class ContenidoTipoComponent implements OnInit {
 
       this.http.get(`${this.env.BACKEND_VIAJES_URL}/tiposViaje/${this.params.id}`).subscribe((data: any) => {
         this.contenido = data.map((viaje: any) => {
-          viaje.precio = Math.round(viaje.precio * 100) / 100; //redondeo a 2 decimales
-          viaje.precio = viaje.precio.toString().replace('.', ','); //cambio el punto por la coma
+          viaje.precio = Math.round(viaje.precio * 100) / 100;
+          viaje.precio = viaje.precio.toString().replace('.', ',');
           return viaje;
   
         });
-        //aqui es un buen sitio para evaluar eso o mejor fuera ?
+        
         console.log(this.contenido);
   
         this.loaded = true;
