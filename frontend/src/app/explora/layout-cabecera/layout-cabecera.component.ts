@@ -21,14 +21,11 @@ export class LayoutCabeceraComponent implements OnInit {
   
   constructor() { }
 
-  ngOnInit(): void {
-
-    
-
+  ngOnInit(): void { 
+    //manejar el estado de la sesion
     const userDataString = sessionStorage.getItem('usuario');
     if (userDataString) {
       this.usuario = JSON.parse(userDataString);
-      // Hacer uso de los datos del usuario
       this.EstaConectado=true;
       console.log(this.usuario); 
     }else{
@@ -36,19 +33,18 @@ export class LayoutCabeceraComponent implements OnInit {
     }
 
   }
-
+  //Cerrar sesion
   desconectar(){
     sessionStorage.removeItem('usuario');
     this.EstaConectado = false;
     console.log("desconectado");
   }
-  
 
-
-
+  //ABRIR POPUP LOGIN
   openLoginPopup() {
     this.showLoginPopup = true;
-  
+    
+    //animacion gsap para el popup
     const tl = gsap.timeline();
   
     tl.fromTo(".overlay", { opacity: 0 }, { opacity: 0.5, duration: 2 }, 0);
@@ -57,8 +53,11 @@ export class LayoutCabeceraComponent implements OnInit {
       this.closeRegisterPopup();
     }
   }
+  //abrir popup registro
   openRegisterPopup() {
     this.showRegisterPopup = true;
+
+    //animacion gsap para el popup
     const tl = gsap.timeline();
   
     tl.fromTo(".overlay", { opacity: 0 }, { opacity: 0.5, duration: 2 }, 0);
@@ -67,8 +66,10 @@ export class LayoutCabeceraComponent implements OnInit {
       this.closeLoginPopup();
     }
   }
-  
+  //cerrar popup login
   closeLoginPopup() {
+
+    //animacion gsap para el popup
     const tl = gsap.timeline({
       duration: 0.2,
       onComplete: () => {
@@ -82,6 +83,8 @@ export class LayoutCabeceraComponent implements OnInit {
   }
 
   closeRegisterPopup() {
+
+    //animacion gsap para el popup
     const tl = gsap.timeline({
       duration: 0.2,
       onComplete: () => {

@@ -12,6 +12,8 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  //FUNCION PARA HACER SCROLL SUAVE HACIA ARRIBA
   arriba() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }

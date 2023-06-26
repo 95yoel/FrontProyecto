@@ -17,6 +17,9 @@ export class ContenidoViajeComponent implements OnInit {
 
   params :{id: number;} | undefined;
 
+
+  //DATOS PARA LA RESERVA
+
   datosReserva = {
     Email: '',
     viaje:0,
@@ -32,8 +35,10 @@ export class ContenidoViajeComponent implements OnInit {
   numViajeros:number =0;
   precioActualizado:string ="";
   precioViaje:string ="";
+
   constructor(private rutaActiva: ActivatedRoute,private http:HttpClient,private httpOptions:HttpService) { }
 
+  //FUNCION PARA IR ATRAS
   salir(){
     window.history.back();
   }
@@ -50,6 +55,7 @@ export class ContenidoViajeComponent implements OnInit {
 
       this.idViaje = this.params.id.toString();
 
+      //PETICION GET PARA OBTENER LOS DATOS DEL VIAJE
 
       this.http.get(`${this.env.BACKEND_VIAJES_URL}/Viajes/GetViajeById/${this.idViaje}`).subscribe((data: any) => {
         if (Array.isArray(data)) {
@@ -74,6 +80,8 @@ export class ContenidoViajeComponent implements OnInit {
     });
   }
 
+  //FUNCION PARA ACTUALIZAR EL PRECIO 
+
   actualizarPrecio() {
     const precio = parseFloat(this.precioViaje.replace(',', '.')); 
   
@@ -81,6 +89,9 @@ export class ContenidoViajeComponent implements OnInit {
       this.precioActualizado= (precio * this.numViajeros).toFixed(2).replace('.', ',');
     }
   }
+
+  //FUNCION PARA RESERVAR EL VIAJE
+
   reservarViaje(){
 
     var usuario = sessionStorage.getItem('usuario');
@@ -99,17 +110,16 @@ export class ContenidoViajeComponent implements OnInit {
       
         this.http.post<any>(`${this.env.BACKEND_VIAJES_URL}/Reservas/Crear`, this.datosReserva, this.httpOptions.httpOptions)
         .subscribe(response => {
+
           if (response) {
-            // Inicio de sesión exitoso
-            // Almacena los datos del usuario en el session storage
+            
             alert("Reserva realizada con exito");
           } else {
             alert("No se ha podido realizar la reserva");
-            // Inicio de sesión fallido
-            // Manejo de errores
+            
           }
         }, error => {
-          // Manejo de errores
+          
         });
      }
     }

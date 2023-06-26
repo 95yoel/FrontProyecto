@@ -9,6 +9,7 @@ export class HttpService {
 
   constructor(private http:HttpClient) { }
 
+  //HTTP OPTIONS
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

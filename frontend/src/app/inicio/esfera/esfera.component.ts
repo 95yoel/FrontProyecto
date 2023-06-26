@@ -1,7 +1,4 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import gsap from 'gsap';
 import { EsferaService } from 'src/app/services/esfera/esfera.service';
 
 
@@ -15,7 +12,11 @@ export class EsferaComponent implements OnInit {
   constructor(private elementRef: ElementRef ,private esfera : EsferaService) { }
   
   ngOnInit(): void {
+
+    //DECLARAR EL ELEMENTO QUE CONTIENE LA ESFERA
     const canvas = document.querySelector('.webgl') as HTMLCanvasElement;
+
+    // INICIAR LA ESFERA LLAMANDO AL SERVICIO
     this.esfera.iniciar(canvas);
   }
   

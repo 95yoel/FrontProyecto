@@ -42,6 +42,7 @@ export class ContenidoTipoComponent implements OnInit {
       this.idCategoria = this.params.id.toString();
 
 
+      //PETICION GET PARA OBTENER LOS DATOS DEL TIPO VIAJE
       this.http.get(`${this.env.BACKEND_VIAJES_URL}/tiposViaje/${this.params.id}`).subscribe((data: any) => {
         this.contenido = data.map((viaje: any) => {
           viaje.precio = Math.round(viaje.precio * 100) / 100;
@@ -64,7 +65,7 @@ export class ContenidoTipoComponent implements OnInit {
 
     });
 
-
+    //IR ATRAS 
   }
   atras(){
     window.history.back();

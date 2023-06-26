@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
 import { HttpService } from '../services/http/http.service';
 
 
@@ -22,9 +21,9 @@ export class ModalRegisterComponent implements OnInit {
   @ViewChild("validationContrasena1") validationContrasena1!: ElementRef;
   @ViewChild("validationContrasena2") validationContrasena2!: ElementRef;
 
-
-
   showPassword: boolean = false;
+
+  //DATOS DE REGISTRO
 
   registrationData = {
     Nombre: '',
@@ -34,6 +33,7 @@ export class ModalRegisterComponent implements OnInit {
   };
   
   constructor(private http:HttpClient ,private headers:HttpService) {}
+
   nombreValido = true;
   apellidosValido = true;
   emailValido = true;
@@ -46,13 +46,15 @@ export class ModalRegisterComponent implements OnInit {
 
   ngAfterViewInit() {
   
-    
   }
  
-  
+  //CAMBIAR VISIBILIDAD DE CONTRASEÑA
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
+
+  //FUNCION PARA VALIDAR LOS CAMPOS
+
   validarCampos():void{
     this.nombreValido = this.registrationData.Nombre.trim() !== '';
     this.apellidosValido = this.registrationData.Apellidos.trim() !== '';
@@ -68,6 +70,8 @@ export class ModalRegisterComponent implements OnInit {
     this.registrationData.Contrasenas === this.contrasena2.nativeElement.value;
   }
 
+
+  //FUNCION QUE SE EJECUTA AL ENVIAR EL FORMULARIO
   
   onSubmit() {
     
@@ -89,14 +93,9 @@ export class ModalRegisterComponent implements OnInit {
     }else{
 
     
-    }
-
-
-    
-    // Aquí se puede agregar la lógica para procesar el formulario de inicio de sesión
-    // Una vez procesado, se puede cerrar el pop-up emitiendo el evento closePopup
-     
+    }  
   }
+  //CERRAR POPUP
   closePopup() {
     this.closeRegisterPopup.emit();
   }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -23,9 +22,6 @@ import { ContenidoDestinoComponent } from './explora/contenido-destino/contenido
 import { ContenidoTipoComponent } from './explora/contenido-tipo/contenido-tipo.component';
 import { ContenidoViajeComponent } from './explora/contenido-viaje/contenido-viaje.component';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +40,6 @@ import { ContenidoViajeComponent } from './explora/contenido-viaje/contenido-via
     ContenidoDestinoComponent,
     ContenidoTipoComponent,
     ContenidoViajeComponent
-    
   ],
   imports: [
     BrowserModule,

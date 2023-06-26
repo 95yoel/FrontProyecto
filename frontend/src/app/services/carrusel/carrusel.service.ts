@@ -8,15 +8,18 @@ export class CarruselService {
 
   swiper: any;
   
-
   constructor() { }
 
+  //FUNCION PARA INICIAR EL CARRUSEL
+  
   iniciar() {
     this.swiper = new Swiper('.mySwiper', {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      slidesPerGroup: 3,
-      loop: true,
+      slidesPerView: 3, //imagenes por vista
+      spaceBetween: 30, //espacio entre imagenes
+      slidesPerGroup: 3, //imagenes por grupo
+      loop: true, //bucle
+
+      //CONFIGURACION DE BOTONES DE NAVEGACION
 
       pagination: {
         el: '.swiper-pagination',
@@ -25,6 +28,8 @@ export class CarruselService {
       keyboard: {
         enabled: true,
       },
+
+      //CONFIGURACION RESPONSIVE
       
       breakpoints: {
         100: {
@@ -46,15 +51,16 @@ export class CarruselService {
       },
     });
 
+    //Avazar el carrusel cada 3 segundos
+
     setInterval(() => {
       this.swiper.slideNext();
     }, 3000);
     
   }
 
+  //avanzar carrusel
   siguiente() {
     this.swiper.slideNext();
   }
-  
-  
 }

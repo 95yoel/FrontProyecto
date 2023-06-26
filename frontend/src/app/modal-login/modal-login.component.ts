@@ -16,6 +16,7 @@ export class ModalLoginComponent implements OnInit {
 
   showPassword: boolean = false;
 
+  //DATOS DE LOGIN
   loginData = {
     Email: '',
     Contrasenas: ''
@@ -30,60 +31,40 @@ export class ModalLoginComponent implements OnInit {
     
   }
 
-  // document.location.href = 'https://www.google.es';
+  //EVENTO QUE SE EJECUTA AL PULSAR EL BOTÓN DE INICIAR SESIÓN
   onSubmit() {
     this.http.post<any>('https://localhost:7227/Usuarios/Login', this.loginData, this.httpOptions.httpOptions)
       .subscribe(response => {
+
+        //SI LA RESPUESTA ES CORRECTA SE ALMACENA EL USUARIO Y SU ID EN EL SESSION STORAGE
         if (response.logeado) {
-          // Inicio de sesión exitoso
-          // Almacena los datos del usuario en el session storage
           sessionStorage.setItem('usuario', JSON.stringify(this.loginData.Email));
           sessionStorage.setItem('id', response.id);
+          //SI EL USUARIO ES ADMINISTRADOR
           if (response.rol === 1) {
             // Redireccionar a la página de administrador
             window.location.href = 'https://localhost:7227/';
+          //SI EL USUARIO ES CLIENTE
           }else{
             document.location.reload();
           }
         } else {
-          alert("Usuario o contraseña incorrectos");
           // Inicio de sesión fallido
-          // Manejo de errores
+          alert("Usuario o contraseña incorrectos");
+          
         }
       }, error => {
-        // Manejo de errores
+       
       });
   
-    console.log("onSubmit");
+    //CERRAR EL POPUP
     this.closePopup.emit();
   }
   
-  // onSubmit() {
-  //   this.http.post<boolean>('https://localhost:7227/Usuarios/Login', this.loginData, this.httpOptions.httpOptions)
-  // .subscribe(response => {
-  //   if (response) {
-  //     // Inicio de sesión exitoso
-  //     // Almacena los datos del usuario en el session storage
-      
-  //     sessionStorage.setItem('usuario', JSON.stringify(this.loginData.Email));
-  //     document.location.reload();
-  //   } else {
-  //     alert("Usuario o contraseña incorrectos");
-  //     // Inicio de sesión fallido
-  //     // Manejo de errores
-  //   }
-  // }, error => {
-  //   // Manejo de errores
-  // });
-
-  //   console.log("onSubmit");
-  //   this.closePopup.emit();
-  // }
-
+  //CAMBIAR VISIBILIDAD DE CONTRASEÑA
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
   
-
 }

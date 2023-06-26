@@ -15,9 +15,12 @@ export class CabeceraComponent implements OnInit {
   showLoginPopup: boolean = false;
   showRegisterPopup: boolean = false;
 
+
+  //ABRIR POPUP LOGIN
   openLoginPopup() {
     this.showLoginPopup = true;
   
+    //ANIMACION GSAP PARA EL POPUP
     const tl = gsap.timeline();
   
     tl.fromTo(".overlay", { opacity: 0 }, { opacity: 0.5, duration: 2 }, 0);
@@ -26,8 +29,12 @@ export class CabeceraComponent implements OnInit {
       this.closeRegisterPopup();
     }
   }
+
+  //ABRIR POPUP REGISTRO
   openRegisterPopup() {
     this.showRegisterPopup = true;
+
+    //ANIMACION GSAP PARA EL POPUP
     const tl = gsap.timeline();
   
     tl.fromTo(".overlay", { opacity: 0 }, { opacity: 0.5, duration: 2 }, 0);
@@ -37,6 +44,7 @@ export class CabeceraComponent implements OnInit {
     }
   }
   
+  //CERRAR POPUP
   closeLoginPopup() {
     const tl = gsap.timeline({
       duration: 0.2,
@@ -50,6 +58,7 @@ export class CabeceraComponent implements OnInit {
     tl.to('.overlay', { opacity: 0, duration: 0.2 }, 0);
   }
 
+  //CERRAR REGISTRO POPUP
   closeRegisterPopup() {
     const tl = gsap.timeline({
       duration: 0.2,

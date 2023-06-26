@@ -41,6 +41,8 @@ export class ContenidoDestinoComponent implements OnInit {
     this.textoMostrar = this.params.id.toString();
     console.log(this.params.id);
 
+
+    //PETICION GET PARA OBTENER LOS VIAJES CONTENIDOS EN UN DESTINO
     this.http.get(`${this.env.BACKEND_VIAJES_URL}/Viajes/ObtenerViajesPorDestino/${this.params.id}`).subscribe((data: any) => {
       this.contenido = data.map((viaje: any) => {
         viaje.precio = Math.round(viaje.precio * 100) / 100;

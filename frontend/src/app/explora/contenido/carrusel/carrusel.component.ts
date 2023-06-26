@@ -22,8 +22,11 @@ export class CarruselComponent implements OnInit {
   constructor(private carrusel : CarruselService,private http:HttpClient) { }
 
     ngOnInit(): void {
+
+      //INICAR EL CARRUSEL DESDE EL SERVICIO
       this.carrusel.iniciar();
 
+      //PETICION GET PARA OBTENER LOS VIAJES DESTACADOS
       this.http.get(`${this.env.BACKEND_VIAJES_URL}/destacado/GetJson`).subscribe((data: any) => {
         this.destacados = data.map((viaje: any) => {
 

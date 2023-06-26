@@ -10,19 +10,27 @@ export class EsferaService {
 
   constructor() { }
 
+//OBTENER TAMAÑO DE LA PANTALLA
+
   private sizes = {
     width: window.innerWidth,
     height: window.innerHeight
   }
 
+//FUNCION PARA INICIAR LA ESFERA
+
   iniciar(canvas: HTMLCanvasElement) {
+
+    //CREACION DEL CANVAS PARA LA ESFERA
     const renderer = new THREE.WebGLRenderer({ canvas , antialias:true });
     renderer.setSize(window.innerWidth, window.innerHeight);
 
+    //CREAR LA ESCENA Y LA CAMARA
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x000000);
     const camera = new THREE.PerspectiveCamera(75, this.sizes.width / this.sizes.height, 0.1, 1000);
 
+    //CONTROLES DE ORBITA PARA LA ESFERA
     const controls = new OrbitControls(camera,canvas);
     controls.enableDamping = false;
     controls.enablePan = false;
@@ -30,6 +38,7 @@ export class EsferaService {
     controls.autoRotate = true;
     controls.autoRotateSpeed = 1.5;
 
+    //ANIMACION DE LA ESFERA
     const animate = function () {
       controls.update();
       requestAnimationFrame(animate);
@@ -37,6 +46,7 @@ export class EsferaService {
       renderer.render(scene, camera);
     };
 
+    //RESPONSIVE DE LA ESFERA
     window.addEventListener('resize', () => {
     this.sizes.width = window.innerWidth;
     this.sizes.height = window.innerHeight;
@@ -46,6 +56,7 @@ export class EsferaService {
     renderer.render(scene,camera);
     });
 
+    //CREACION DE LA ESFERA
     const sphere = new THREE.Mesh(new THREE.SphereGeometry(5,32,32),
     new THREE.MeshStandardMaterial({
       map : new THREE.TextureLoader().load('assets/img/esfera/earthMap.jpg'),
@@ -53,6 +64,7 @@ export class EsferaService {
       emissive:'black'
     }));
 
+    //CREACION DE LA ATMOSFERA
     const atmosphere = new THREE.Mesh(new THREE.SphereGeometry(5, 25, 25),
     new THREE.MeshStandardMaterial({
         color: "black",
@@ -64,6 +76,8 @@ export class EsferaService {
         
     })
   );
+
+    //POSICION DE LA ESFERA Y LA ATMOSFERA
 
   atmosphere.scale.set(1.1, 1.1, 1.1);
     
@@ -79,13 +93,15 @@ export class EsferaService {
 
       camera.position.z = 20;
 
+    //FUNCION DE ANIMACION DE LA ESFERA
     animate();
 
+    //ANIMACIONES GSAP
+    
     const tl = gsap.timeline({
       duration: 0.2,
       delay:0
     });
-  
   
     tl.fromTo(sphere.material,{opacity:0},{opacity:1});
     tl.fromTo(atmosphere.material,{opacity:0},{opacity:0.05});
