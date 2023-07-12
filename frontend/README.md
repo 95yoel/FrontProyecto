@@ -1,7 +1,7 @@
 # Frontend y vistas entorno cliente
 Proyecto hecho con Angular CLI version 14.2.3.
 
-Para ejecutarlo correctamente es necesario tener instalado [Backend AsturTravel](https://github.com/95yoel/frontProyecto/) .
+Para ejecutarlo correctamente es necesario tener instalado [Backend AsturTravel](https://github.com/95yoel/TravelAgency-Backend) .
 
 ## Requisitos 
 - [Node.js](https://nodejs.org/en) 
